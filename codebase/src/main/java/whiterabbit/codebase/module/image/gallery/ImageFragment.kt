@@ -1,6 +1,5 @@
 package com.whiterabbit.base.module.image.gallery
 
-
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -8,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
-import com.whiterabbit.base.ui.WrgFragment
-import com.whiterabbit.dapit.R
+import whiterabbit.codebase.ui.fragment.WrgFragment
+import whiterabbit.com.codebase.R
+import whiterabbit.com.codebase.R.id.imageView
+import whiterabbit.com.codebase.R.id.progressBar
 import java.lang.Exception
 
 /**

@@ -1,9 +1,9 @@
-package whiterabbit.com.codebase.ui.fragment
+package whiterabbit.codebase.ui.fragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import whiterabbit.com.codebase.R
-import whiterabbit.com.codebase.ui.activity.WrgActivity
+import whiterabbit.codebase.ui.activity.WrgActivity
 
 /**
  * Created by mujeeb on 27/04/18.

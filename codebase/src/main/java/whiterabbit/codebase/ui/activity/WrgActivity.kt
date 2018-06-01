@@ -1,4 +1,4 @@
-package whiterabbit.com.codebase.ui.activity
+package whiterabbit.codebase.ui.activity
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentTransaction
