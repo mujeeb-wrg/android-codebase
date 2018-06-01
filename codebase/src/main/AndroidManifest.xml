@@ -1,2 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="whiterabbit.com.codebase" />
+    package="whiterabbit.com.codebase" >
+
+    <application>
+
+        <activity android:name="com.whiterabbit.base.module.image.gallery.ImageGalleryActivity"/>
+
+    </application>
+
+</manifest>

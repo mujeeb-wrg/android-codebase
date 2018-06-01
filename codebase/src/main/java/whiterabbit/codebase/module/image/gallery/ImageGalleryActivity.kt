@@ -12,7 +12,7 @@ class ImageGalleryActivity : WrgActivity() {
     lateinit var images:ArrayList<String>
 
     companion object {
-        fun intent(context: Context, images:ArrayList<String>, initialPosition:Int):Intent{
+        fun intent(context: Context, images:ArrayList<String>, initialPosition:Int? = null):Intent{
             val intent = Intent(context, ImageGalleryActivity::class.java)
             intent.putExtra(EXTRA_IMAGE_URLS, images)
             intent.putExtra(EXTRA_INITIAL_IMAGE_POSITION, initialPosition)
