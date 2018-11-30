@@ -1,0 +1,10 @@
+<resources>
+    <declare-styleable name="NetworkLayout">
+        <attr name="retryBackground" format="color"/>
+        <attr name="networkViewBackground" format="color"/>
+        <attr name="tint_enabled" format="boolean"/>
+        <attr name="isInProgress" format="boolean"/>
+    </declare-styleable>
+
+
+</resources>
