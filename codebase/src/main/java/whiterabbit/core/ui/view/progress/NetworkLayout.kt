@@ -14,6 +14,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.ProgressBar
+import com.whiterabbit.base.ui.fragment.viewmodel.WrgViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

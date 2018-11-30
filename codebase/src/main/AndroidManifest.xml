@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="whiterabbit.com.codebase" >
 
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
     <application>
 
         <activity android:name="com.whiterabbit.base.module.image.gallery.ImageGalleryActivity"/>

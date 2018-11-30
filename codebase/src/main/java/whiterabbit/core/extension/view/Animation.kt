@@ -6,7 +6,7 @@ import android.os.VibrationEffect
 import android.os.Vibrator
 import android.view.View
 import android.view.animation.AnimationUtils
-import com.whiterabbit.dapit.R
+import whiterabbit.com.codebase.R
 
 
 fun View.animateErrorFeedback(){
