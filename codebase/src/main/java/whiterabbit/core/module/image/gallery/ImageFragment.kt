@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_image.*
-import whiterabbit.codebase.ui.fragment.WrgFragment
+import whiterabbit.core.ui.fragment.WrgFragment
 import whiterabbit.com.codebase.R
 import java.lang.Exception
 

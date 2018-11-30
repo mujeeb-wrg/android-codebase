@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_image_gallery.*
-import whiterabbit.codebase.ui.activity.WrgActivity
+import whiterabbit.core.ui.activity.WrgActivity
 import whiterabbit.com.codebase.R
 
 class ImageGalleryActivity : WrgActivity() {
