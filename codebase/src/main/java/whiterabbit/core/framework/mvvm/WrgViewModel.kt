@@ -2,18 +2,16 @@ package com.whiterabbit.base.ui.fragment.viewmodel
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
-import com.whiterabbit.base.ui.NetworkLayoutLiveData
-import com.whiterabbit.dapit.data.model.ApiStatus
-import com.whiterabbit.dapit.manger.api.ApiManager
-import com.whiterabbit.dapit.manger.api.DapItApiService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import whiterabbit.core.model.WrgApiStatus
+import whiterabbit.core.ui.view.progress.NetworkLayoutLiveData
 
 
 //class NavigationEvent(val type:String)
 
-class ApiResponseEvent(val tag:String, val status:ApiStatus)
+class ApiResponseEvent(val tag:String, val status:WrgApiStatus)
 
 class MessageEvent(val type:MessageEventType = MessageEventType.TOAST
                    , title:String? = null
@@ -29,11 +27,6 @@ open abstract class WrgViewModel: ViewModel() {
     var navigationEvent = MutableLiveData<String>()
     var apiResponseEvent = MutableLiveData<ApiResponseEvent>()
     var messageEvent = MutableLiveData<MessageEvent>()
-
-    val webService: DapItApiService
-        get() {
-            return ApiManager.instance()
-        }
 
     var networkLayoutLiveData = NetworkLayoutLiveData()
 
@@ -66,7 +59,7 @@ open abstract class WrgViewModel: ViewModel() {
         }
     }
 
-    fun sendApiResponse(tag: String, status: ApiStatus){
+    fun sendApiResponse(tag: String, status: WrgApiStatus){
         apiResponseEvent.value = ApiResponseEvent(tag, status)
     }
 
@@ -74,7 +67,7 @@ open abstract class WrgViewModel: ViewModel() {
         navigationEvent.value = event
     }
 
-    fun sendResponse(status: ApiStatus, navigationEvent:String){
+    fun sendResponse(status: WrgApiStatus, navigationEvent:String){
         apiResponseEvent.value = ApiResponseEvent(navigationEvent, status)
         this@WrgViewModel.navigationEvent.value = navigationEvent
     }
