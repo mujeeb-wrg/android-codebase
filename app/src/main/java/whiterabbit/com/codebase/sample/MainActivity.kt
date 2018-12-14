@@ -1,12 +1,26 @@
 package whiterabbit.com.codebase.sample
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import whiterabbit.core.ui.activity.WrgActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : WrgActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
+
+    override fun setData() {
+
+    }
+
+    override fun initUi() {
+        navigateTo(MainFragment())
+    }
+
+    override fun registerUiEvents() {
+
+    }
+
 }
+
