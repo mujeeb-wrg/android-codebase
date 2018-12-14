@@ -26,7 +26,7 @@ interface NetworkLayoutListener<T>{
     fun onRetry()
 }
 
-class NetworkLayoutLiveData{
+class ProgressLayoutLiveData{
     var isInProgress = MutableLiveData<Boolean>()
     var isError = MutableLiveData<Boolean>()
     var isSwipeToRefreshInProgress = MutableLiveData<Boolean>()
@@ -44,7 +44,7 @@ class NetworkLayout: FrameLayout {
     lateinit var btnRetry:Button
     lateinit var viewRetry:View
 
-    private var networkLayoutLiveData: NetworkLayoutLiveData? = null
+    private var progressLayoutLiveData: ProgressLayoutLiveData? = null
 
     val isInProgress:Boolean
         get() {return  progressBar.visibility == View.VISIBLE}
@@ -102,7 +102,7 @@ class NetworkLayout: FrameLayout {
 
     fun showProgress(){
 
-        if(networkLayoutLiveData?.isSwipeToRefreshInProgress?.value == true){
+        if(progressLayoutLiveData?.isSwipeToRefreshInProgress?.value == true){
             return
         }
 
@@ -200,9 +200,9 @@ class NetworkLayout: FrameLayout {
     }
 
 
-    fun setViewModel(networkLayoutLiveData: NetworkLayoutLiveData, lifecycleOwner: LifecycleOwner){
-        this.networkLayoutLiveData = networkLayoutLiveData
-        networkLayoutLiveData.isInProgress.observe(lifecycleOwner
+    fun setViewModel(progressLayoutLiveData: ProgressLayoutLiveData, lifecycleOwner: LifecycleOwner){
+        this.progressLayoutLiveData = progressLayoutLiveData
+        progressLayoutLiveData.isInProgress.observe(lifecycleOwner
                 , Observer<Boolean> {it ->
             it?.let {
                 if(it){
@@ -213,7 +213,7 @@ class NetworkLayout: FrameLayout {
             }
         })
 
-        networkLayoutLiveData.isError.observe(lifecycleOwner
+        progressLayoutLiveData.isError.observe(lifecycleOwner
                 , Observer<Boolean> {it ->
             it?.let {isError ->
                 if(isError){

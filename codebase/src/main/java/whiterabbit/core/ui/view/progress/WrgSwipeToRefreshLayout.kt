@@ -9,7 +9,7 @@ import com.whiterabbit.base.ui.fragment.viewmodel.WrgViewModel
 
 class WrgSwipeToRefreshLayout: SwipeRefreshLayout{
 
-    private var progressData: NetworkLayoutLiveData? = null
+    private var progressData: ProgressLayoutLiveData? = null
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
@@ -30,23 +30,23 @@ class WrgSwipeToRefreshLayout: SwipeRefreshLayout{
         setViewModel(viewModel.networkLayoutLiveData, lifecycleOwner)
     }
 
-    fun setViewModel(networkLayoutLiveData: NetworkLayoutLiveData
+    fun setViewModel(progressLayoutLiveData: ProgressLayoutLiveData
                      , lifecycleOwner: LifecycleOwner){
-        this.progressData = networkLayoutLiveData
-        networkLayoutLiveData.isInProgress.observe(lifecycleOwner
+        this.progressData = progressLayoutLiveData
+        progressLayoutLiveData.isInProgress.observe(lifecycleOwner
                 , Observer<Boolean> { it ->
             it?.let {
                 if(!it && isRefreshing)
-                    networkLayoutLiveData?.isSwipeToRefreshInProgress.value = false
+                    progressLayoutLiveData?.isSwipeToRefreshInProgress.value = false
                     isRefreshing = false
             }
         })
 
-        networkLayoutLiveData.isError.observe(lifecycleOwner
+        progressLayoutLiveData.isError.observe(lifecycleOwner
                 , Observer<Boolean> {it ->
             it?.let {isError ->
                 if(isError){
-                    networkLayoutLiveData?.isSwipeToRefreshInProgress.value = false
+                    progressLayoutLiveData?.isSwipeToRefreshInProgress.value = false
                     isRefreshing = false
                 }
             }

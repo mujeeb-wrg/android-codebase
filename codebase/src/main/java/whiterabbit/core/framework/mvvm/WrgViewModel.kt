@@ -6,7 +6,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import whiterabbit.core.model.WrgApiStatus
-import whiterabbit.core.ui.view.progress.NetworkLayoutLiveData
+import whiterabbit.core.ui.view.progress.ProgressLayoutLiveData
 
 
 //class NavigationEvent(val type:String)
@@ -28,7 +28,7 @@ open abstract class WrgViewModel: ViewModel() {
     var apiResponseEvent = MutableLiveData<ApiResponseEvent>()
     var messageEvent = MutableLiveData<MessageEvent>()
 
-    var networkLayoutLiveData = NetworkLayoutLiveData()
+    var networkLayoutLiveData = ProgressLayoutLiveData()
 
     init {
         callWebservice()

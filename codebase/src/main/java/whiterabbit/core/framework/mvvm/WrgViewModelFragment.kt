@@ -94,5 +94,9 @@ abstract class WrgViewModelFragment<VM: WrgViewModel, DB: ViewDataBinding>: WrgF
 
     }
 
+    override fun registerUiEvents() {
+
+    }
+
 }
 
