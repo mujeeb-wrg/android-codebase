@@ -3,8 +3,8 @@ package com.whiterabbit.base.extension.view.dialog
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.support.v4.app.Fragment
-import android.support.v7.app.AlertDialog
+import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AlertDialog
 
 val REQUEST_PICK_IMAGE = 10
 
@@ -22,7 +22,7 @@ private fun imagePickerIntent(allowMultiple:Boolean = false): Intent {
     return intent
 }
 
-fun Alert.Companion.showImagePickerDialog(fragment: Fragment, allowMultiple:Boolean = false){
+fun Alert.Companion.showImagePickerDialog(fragment: androidx.fragment.app.Fragment, allowMultiple:Boolean = false){
     fragment?.activity?.let {activity->
         val builder = AlertDialog.Builder(activity)
         builder.setTitle("Pick Image")

@@ -1,13 +1,13 @@
 package whiterabbit.core.ui.view.progress
 
-import android.arch.lifecycle.LifecycleOwner
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.Observer
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 import android.content.Context
 import android.graphics.Color
 import android.os.Build
-import android.support.annotation.RequiresApi
-import android.support.v4.widget.SwipeRefreshLayout
+import androidx.annotation.RequiresApi
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -138,13 +138,13 @@ class NetworkLayout: FrameLayout {
         this.onRetry = retry
     }
 
-    fun<T> callback(swipeToRefreshLayout: SwipeRefreshLayout? = null
+    fun<T> callback(swipeToRefreshLayout: androidx.swiperefreshlayout.widget.SwipeRefreshLayout? = null
                     , success:(T)->Unit): Callback<T>{
         return  callback<T>(swipeToRefreshLayout = swipeToRefreshLayout
                 , success = success, retry = null)
     }
 
-    fun<T> callback(swipeToRefreshLayout: SwipeRefreshLayout? = null
+    fun<T> callback(swipeToRefreshLayout: androidx.swiperefreshlayout.widget.SwipeRefreshLayout? = null
                     , success:(T)->Unit, retry:(() -> Unit)?): Callback<T>{
 
         swipeToRefreshLayout?.let {

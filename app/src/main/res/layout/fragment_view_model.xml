@@ -11,7 +11,7 @@
             type="whiterabbit.com.codebase.sample.viewmodel.ViewModel"/>
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -52,6 +52,6 @@
             android:text="Increase"
             app:layout_constraintBaseline_toBaselineOf="@+id/btnDecrease"
             app:layout_constraintStart_toEndOf="@+id/btnDecrease" />
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

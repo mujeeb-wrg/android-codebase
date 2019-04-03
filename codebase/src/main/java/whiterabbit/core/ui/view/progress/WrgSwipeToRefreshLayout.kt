@@ -1,13 +1,13 @@
 package whiterabbit.core.ui.view.progress
 
-import android.arch.lifecycle.LifecycleOwner
-import android.arch.lifecycle.Observer
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.Observer
 import android.content.Context
-import android.support.v4.widget.SwipeRefreshLayout
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import android.util.AttributeSet
 import com.whiterabbit.base.ui.fragment.viewmodel.WrgViewModel
 
-class WrgSwipeToRefreshLayout: SwipeRefreshLayout{
+class WrgSwipeToRefreshLayout: androidx.swiperefreshlayout.widget.SwipeRefreshLayout {
 
     private var progressData: ProgressLayoutLiveData? = null
 

@@ -5,11 +5,11 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentTransaction
-import android.support.v4.content.LocalBroadcastManager
-import android.support.v7.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.MenuItem
 import whiterabbit.com.codebase.R
@@ -20,7 +20,7 @@ import whiterabbit.core.ui.fragment.WrgFragment
  */
 
 
-abstract class WrgActivity: AppCompatActivity(), FragmentManager.OnBackStackChangedListener {
+abstract class WrgActivity: AppCompatActivity(), androidx.fragment.app.FragmentManager.OnBackStackChangedListener {
 
     private val broadCastReceivers = ArrayList<BroadcastReceiver>()
 
@@ -105,13 +105,13 @@ abstract class WrgActivity: AppCompatActivity(), FragmentManager.OnBackStackChan
     //</editor-fold>
 
     //<editor-fold desc="Fragment">
-    open fun navigateTo(fragment: Fragment, resId:Int = R.id.container, tag:String? = null
-                        ,clearBackStack:Boolean = false){
+    open fun navigateTo(fragment: androidx.fragment.app.Fragment, resId:Int = R.id.container, tag:String? = null
+                        , clearBackStack:Boolean = false){
         if(clearBackStack)
-            supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+            supportFragmentManager.popBackStack(null, androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE)
         supportFragmentManager.beginTransaction()
                 .add(resId,fragment,tag)
-                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .setTransition(androidx.fragment.app.FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                 .addToBackStack(tag)
                 .commit()
         invalidateOptionsMenu()
@@ -137,7 +137,7 @@ abstract class WrgActivity: AppCompatActivity(), FragmentManager.OnBackStackChan
             }
         }
         broadCastReceivers.add(receiver)
-        LocalBroadcastManager.getInstance(this)
+        androidx.localbroadcastmanager.content.LocalBroadcastManager.getInstance(this)
                 .registerReceiver(receiver, IntentFilter(action))
     }
 
@@ -148,12 +148,12 @@ abstract class WrgActivity: AppCompatActivity(), FragmentManager.OnBackStackChan
         bundle?.let {
             intent.putExtras(bundle)
         }
-        LocalBroadcastManager.getInstance(this).sendBroadcast(intent)
+        androidx.localbroadcastmanager.content.LocalBroadcastManager.getInstance(this).sendBroadcast(intent)
     }
 
     private fun unregisterReceivers(){
         for(receiver in broadCastReceivers){
-            LocalBroadcastManager.getInstance(this).unregisterReceiver(receiver)
+            androidx.localbroadcastmanager.content.LocalBroadcastManager.getInstance(this).unregisterReceiver(receiver)
         }
     }
     //</editor-fold>

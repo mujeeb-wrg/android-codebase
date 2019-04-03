@@ -3,8 +3,8 @@ package whiterabbit.com.codebase.sample
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.widget.RecyclerView
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -56,7 +56,7 @@ class MainFragment : WrgFragment(), HomeAdapter.Listener {
 
 
 class HomeAdapter(private val fragments: HashMap<String, Class<out WrgFragment>>
-                  , val listener: Listener) : RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
+                  , val listener: Listener) : androidx.recyclerview.widget.RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
 
     interface Listener{
         fun onClickFragment(fragment:Class<out WrgFragment>)
@@ -75,7 +75,7 @@ class HomeAdapter(private val fragments: HashMap<String, Class<out WrgFragment>>
         holder.bind()
     }
 
-    inner class HomeViewHolder(itemView:View): RecyclerView.ViewHolder(itemView){
+    inner class HomeViewHolder(itemView:View): androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView){
 
         init {
             itemView.setOnClickListener {

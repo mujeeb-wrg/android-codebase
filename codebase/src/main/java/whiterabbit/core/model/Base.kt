@@ -2,8 +2,8 @@ package whiterabbit.core.model
 
 import android.app.Activity
 import android.content.Context
-import android.support.v4.app.Fragment
-import android.support.v7.app.AlertDialog
+import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AlertDialog
 import android.widget.Toast
 
 
@@ -41,7 +41,7 @@ data class WrgApiStatus(val code:Int,val message: String?){
         return isSuccess
     }
 
-    fun isSuccess(fragment: Fragment?): Boolean{
+    fun isSuccess(fragment: androidx.fragment.app.Fragment?): Boolean{
         return isSuccess(fragment?.activity)
     }
 

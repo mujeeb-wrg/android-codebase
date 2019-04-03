@@ -5,8 +5,8 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.content.LocalBroadcastManager
+import androidx.fragment.app.Fragment
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import android.util.Log
 import whiterabbit.com.codebase.R
 import whiterabbit.core.ui.activity.WrgActivity
@@ -16,7 +16,7 @@ import whiterabbit.core.ui.activity.WrgActivity
  */
 
 
-abstract class WrgFragment: Fragment(){
+abstract class WrgFragment: androidx.fragment.app.Fragment(){
 
     private val broadCastReceivers = ArrayList<BroadcastReceiver>()
 
@@ -94,7 +94,7 @@ abstract class WrgFragment: Fragment(){
             }
         }
         broadCastReceivers.add(receiver)
-        LocalBroadcastManager.getInstance(context).registerReceiver(receiver, IntentFilter(action))
+        androidx.localbroadcastmanager.content.LocalBroadcastManager.getInstance(context).registerReceiver(receiver, IntentFilter(action))
     }
 
     fun sendBroadcastFor(action:String, bundle: Bundle? = null){
@@ -104,14 +104,14 @@ abstract class WrgFragment: Fragment(){
         bundle?.let {
             intent.putExtras(bundle)
         }
-        LocalBroadcastManager.getInstance(context).sendBroadcast(intent)
+        androidx.localbroadcastmanager.content.LocalBroadcastManager.getInstance(context).sendBroadcast(intent)
     }
 
     override fun onDestroy() {
         super.onDestroy()
         val context = activity ?: return
         for(receiver in broadCastReceivers){
-            LocalBroadcastManager.getInstance(context).unregisterReceiver(receiver)
+            androidx.localbroadcastmanager.content.LocalBroadcastManager.getInstance(context).unregisterReceiver(receiver)
         }
     }
 
